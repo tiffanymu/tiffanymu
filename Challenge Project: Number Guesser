@@ -1,0 +1,40 @@
+let humanScore = 0;
+let computerScore = 0;
+let currentRoundNumber = 1;
+
+// Write your code below:
+function generateTarget() {
+  return Math.ceil(Math.random()*10);
+}
+
+function compareGuesses(hguess, cguess, tguess) {
+  h1 = tguess - hguess;
+  c1 = tguess - cguess;
+  if (hguess === cguess) {
+    return true;
+  } else if (tguess === hguess) {
+    return true;
+  } else if (tguess === cguess) {
+    return false;
+  } else if (h1 < -1) {
+    return false;
+  } else if (h1 > c1) {
+    return false;
+  } else if (h1 < c1) {
+    return true;
+  }
+}
+
+function updateScore(winner) {
+  if (winner === 'human') {
+    humanScore++
+  } else if (winner === 'computer') {
+    computerScore++;
+  }
+}
+
+function advanceRound() {
+  currentRoundNumber++;
+}
+
+
